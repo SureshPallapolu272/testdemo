@@ -1,0 +1,185 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "testdatafactory017"
+		},
+		"Jira1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Jira1'"
+		},
+		"LS_ADLSConnection_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_ADLSConnection'"
+		},
+		"LS_BlobStorageConnection_servicePrincipalCredential": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalCredential' of 'LS_BlobStorageConnection'"
+		},
+		"LS_SQLConnection_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_SQLConnection'"
+		},
+		"Jira1_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "3434"
+		},
+		"Jira1_properties_typeProperties_username": {
+			"type": "string",
+			"defaultValue": "Suresh"
+		},
+		"LS_ADLSConnection_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://testdatalakegen2017.dfs.core.windows.net/"
+		},
+		"LS_BlobStorageConnection_properties_typeProperties_serviceEndpoint": {
+			"type": "string",
+			"defaultValue": "https://testazureblobstorage015.blob.core.windows.net/"
+		},
+		"LS_BlobStorageConnection_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+		},
+		"LS_BlobStorageConnection_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "606c1798-1e7b-4728-97d3-103fe67399c9"
+		},
+		"LS_Keyvalut_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://testkeyvault014.vault.azure.net/"
+		},
+		"Blobstorage-PE_properties_privateLinkResourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/0b09d9a2-10b0-4bdb-966c-fa3ebfa3ba0a/resourceGroups/TestRG002/providers/Microsoft.Storage/storageAccounts/testazureblobstorage015"
+		},
+		"Blobstorage-PE_properties_groupId": {
+			"type": "string",
+			"defaultValue": "blob"
+		},
+		"Blobstorage-PE_properties_fqdns": {
+			"type": "array",
+			"defaultValue": [
+				"testazureblobstorage015.blob.core.windows.net"
+			]
+		},
+		"DatalakePrivateEndpoint_properties_privateLinkResourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/0b09d9a2-10b0-4bdb-966c-fa3ebfa3ba0a/resourceGroups/TestRG002/providers/Microsoft.Storage/storageAccounts/testdatalakegen2017"
+		},
+		"DatalakePrivateEndpoint_properties_groupId": {
+			"type": "string",
+			"defaultValue": "dfs"
+		},
+		"DatalakePrivateEndpoint_properties_fqdns": {
+			"type": "array",
+			"defaultValue": [
+				"testdatalakegen2017.dfs.core.windows.net"
+			]
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "testdatafactory017_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"Jira1_password": {
+						"value": "[parameters('Jira1_password')]"
+					},
+					"LS_ADLSConnection_accountKey": {
+						"value": "[parameters('LS_ADLSConnection_accountKey')]"
+					},
+					"LS_BlobStorageConnection_servicePrincipalCredential": {
+						"value": "[parameters('LS_BlobStorageConnection_servicePrincipalCredential')]"
+					},
+					"LS_SQLConnection_connectionString": {
+						"value": "[parameters('LS_SQLConnection_connectionString')]"
+					},
+					"Jira1_properties_typeProperties_host": {
+						"value": "[parameters('Jira1_properties_typeProperties_host')]"
+					},
+					"Jira1_properties_typeProperties_username": {
+						"value": "[parameters('Jira1_properties_typeProperties_username')]"
+					},
+					"LS_ADLSConnection_properties_typeProperties_url": {
+						"value": "[parameters('LS_ADLSConnection_properties_typeProperties_url')]"
+					},
+					"LS_BlobStorageConnection_properties_typeProperties_serviceEndpoint": {
+						"value": "[parameters('LS_BlobStorageConnection_properties_typeProperties_serviceEndpoint')]"
+					},
+					"LS_BlobStorageConnection_properties_typeProperties_tenant": {
+						"value": "[parameters('LS_BlobStorageConnection_properties_typeProperties_tenant')]"
+					},
+					"LS_BlobStorageConnection_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('LS_BlobStorageConnection_properties_typeProperties_servicePrincipalId')]"
+					},
+					"LS_Keyvalut_properties_typeProperties_baseUrl": {
+						"value": "[parameters('LS_Keyvalut_properties_typeProperties_baseUrl')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "testdatafactory017_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"Blobstorage-PE_properties_privateLinkResourceId": {
+						"value": "[parameters('Blobstorage-PE_properties_privateLinkResourceId')]"
+					},
+					"Blobstorage-PE_properties_groupId": {
+						"value": "[parameters('Blobstorage-PE_properties_groupId')]"
+					},
+					"Blobstorage-PE_properties_fqdns": {
+						"value": "[parameters('Blobstorage-PE_properties_fqdns')]"
+					},
+					"DatalakePrivateEndpoint_properties_privateLinkResourceId": {
+						"value": "[parameters('DatalakePrivateEndpoint_properties_privateLinkResourceId')]"
+					},
+					"DatalakePrivateEndpoint_properties_groupId": {
+						"value": "[parameters('DatalakePrivateEndpoint_properties_groupId')]"
+					},
+					"DatalakePrivateEndpoint_properties_fqdns": {
+						"value": "[parameters('DatalakePrivateEndpoint_properties_fqdns')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'testdatafactory017_ArmTemplate_0')]"
+			]
+		}
+	]
+}

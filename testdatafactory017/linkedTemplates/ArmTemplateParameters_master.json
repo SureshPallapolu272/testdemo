@@ -1,0 +1,70 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "testdatafactory017"
+		},
+		"Jira1_password": {
+			"value": ""
+		},
+		"LS_ADLSConnection_accountKey": {
+			"value": ""
+		},
+		"LS_BlobStorageConnection_servicePrincipalCredential": {
+			"value": ""
+		},
+		"LS_SQLConnection_connectionString": {
+			"value": ""
+		},
+		"Jira1_properties_typeProperties_host": {
+			"value": "3434"
+		},
+		"Jira1_properties_typeProperties_username": {
+			"value": "Suresh"
+		},
+		"LS_ADLSConnection_properties_typeProperties_url": {
+			"value": "https://testdatalakegen2017.dfs.core.windows.net/"
+		},
+		"LS_BlobStorageConnection_properties_typeProperties_serviceEndpoint": {
+			"value": "https://testazureblobstorage015.blob.core.windows.net/"
+		},
+		"LS_BlobStorageConnection_properties_typeProperties_tenant": {
+			"value": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+		},
+		"LS_BlobStorageConnection_properties_typeProperties_servicePrincipalId": {
+			"value": "606c1798-1e7b-4728-97d3-103fe67399c9"
+		},
+		"LS_Keyvalut_properties_typeProperties_baseUrl": {
+			"value": "https://testkeyvault014.vault.azure.net/"
+		},
+		"Blobstorage-PE_properties_privateLinkResourceId": {
+			"value": "/subscriptions/0b09d9a2-10b0-4bdb-966c-fa3ebfa3ba0a/resourceGroups/TestRG002/providers/Microsoft.Storage/storageAccounts/testazureblobstorage015"
+		},
+		"Blobstorage-PE_properties_groupId": {
+			"value": "blob"
+		},
+		"Blobstorage-PE_properties_fqdns": {
+			"value": [
+				"testazureblobstorage015.blob.core.windows.net"
+			]
+		},
+		"DatalakePrivateEndpoint_properties_privateLinkResourceId": {
+			"value": "/subscriptions/0b09d9a2-10b0-4bdb-966c-fa3ebfa3ba0a/resourceGroups/TestRG002/providers/Microsoft.Storage/storageAccounts/testdatalakegen2017"
+		},
+		"DatalakePrivateEndpoint_properties_groupId": {
+			"value": "dfs"
+		},
+		"DatalakePrivateEndpoint_properties_fqdns": {
+			"value": [
+				"testdatalakegen2017.dfs.core.windows.net"
+			]
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

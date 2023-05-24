@@ -41,6 +41,55 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/ds_inputdatsets')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_BlobStorageConnection",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"Sourcefilenames": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": {
+							"value": "@dataset().Sourcefilenames",
+							"type": "Expression"
+						},
+						"container": "raw"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/ds_inputfile')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -834,7 +883,8 @@
 				"lastPublishTime": "2023-05-15T03:10:06Z"
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/ds_inputfiles')]"
+				"[concat(variables('factoryId'), '/datasets/ds_inputfiles')]",
+				"[concat(variables('factoryId'), '/datasets/ds_inputdatsets')]"
 			]
 		},
 		{

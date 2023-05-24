@@ -1,0 +1,236 @@
+{
+	"name": "PL_ProcessZipFiles",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy ZipFiles",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "raw//population_by_age.tsv.gz"
+					},
+					{
+						"name": "Destination",
+						"value": "refined//"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".tsv"
+						}
+					},
+					"enableStaging": false,
+					"enableSkipIncompatibleRow": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "indic_de,geo\\time",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "indic_de,geo\\time",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "2008 ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "2008 ",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "2009 ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "2009 ",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "2010 ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "2010 ",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "2011 ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "2011 ",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "2012 ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "2012 ",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "2013 ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "2013 ",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "2014 ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "2014 ",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "2015 ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "2015 ",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "2016 ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "2016 ",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "2017 ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "2017 ",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "2018 ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "2018 ",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "2019 ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "2019 ",
+									"type": "String",
+									"physicalType": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DS_ZipFiles",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ds_outputcsv",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2023-05-10T09:44:12Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

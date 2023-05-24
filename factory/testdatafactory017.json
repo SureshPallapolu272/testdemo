@@ -1,0 +1,20 @@
+{
+	"name": "testdatafactory017",
+	"properties": {
+		"globalConfigurations": {
+			"PipelineBillingEnabled": "false"
+		}
+	},
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned,UserAssigned",
+		"principalId": "d80e778a-7ed2-4423-a96f-1331f50c5e88",
+		"tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+		"userAssignedIdentities": {
+			"/subscriptions/0b09d9a2-10b0-4bdb-966c-fa3ebfa3ba0a/resourcegroups/TestRG002/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testazureuserassigned017": {
+				"clientId": "4fafb8be-982d-4252-8e7f-0d2b00180e69",
+				"principalId": "df57191b-17fe-4d28-91de-39c907bca340"
+			}
+		}
+	}
+}

@@ -1,0 +1,19 @@
+{
+	"name": "DS_OutputMp4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLSConnection",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "MP4",
+				"fileSystem": "refined"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

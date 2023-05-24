@@ -1,0 +1,28 @@
+{
+	"name": "DS_OutputPDF",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLSConnection",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"OutputFile": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().OutputFile",
+					"type": "Expression"
+				},
+				"folderPath": "PDFFiles",
+				"fileSystem": "refined"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
